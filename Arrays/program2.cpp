@@ -1,32 +1,42 @@
-//Program to delete an element from the array.
+// Program to delete an element from an array
 #include <iostream>
 using namespace std;
 
-int main(){
-    int arr[10],n,pos;
-    cout<<"Enter the size of the array below 10."<<endl;
-    cin>>n;
-    cout<<"Enter the elements of array"<<endl;
+int main() {
+    int arr[10], n, pos;
 
-    //Taking inputs in the array.
-    for (int i=0; i<n;i++)
-    cin>>arr[i];
+    cout << "Enter the size of the array (max 10): ";
+    cin >> n;
 
-    //Taking the position from which to delete the element from the array.
-    cout<<"Enter the index to delete the element from the array"<<endl;
-    cin>>pos;
+    if (n > 10 || n < 1) {
+        cout << "Invalid array size!" << endl;
+        return 0;
+    }
 
-    for(int i=pos;i<n;i++)
-    {
-        arr[i]=arr[i+1];
+    cout << "Enter " << n << " elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    cout << "Enter the position (1 to " << n << ") to delete: ";
+    cin >> pos;
+
+    if (pos < 1 || pos > n) {
+        cout << "Invalid position!" << endl;
+        return 0;
+    }
+
+    // Shift elements to the left
+    for (int i = pos - 1; i < n - 1; i++) {
+        arr[i] = arr[i + 1];
     }
     n--;
 
-    //Printing the new array.
-
-    cout<<"Printing the new array."<<endl;
-    for(int i=0;i<n;i++)
-    cout<<arr[i]<<" ";
+    cout << "Array after deletion: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 
     return 0;
 }
