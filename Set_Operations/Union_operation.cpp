@@ -64,7 +64,7 @@ int main()
 
     //Taking the union of both the sets.
     vector<int> c = unionsortedarrays(a,b);
-    cout<<"The Intersection of the Array is "<<endl;
+    cout<<"The Union of the Array is "<<endl;
     for(int x:c)
     {
         cout<<x<<" ";
